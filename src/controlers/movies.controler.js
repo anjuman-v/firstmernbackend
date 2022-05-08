@@ -4,7 +4,7 @@ const Movie = require('../model/movie.model');
 
 // const router = express.Router()
 
-const router = Router();
+const router = Router()
 
 router.post('/movie',async(req, res)=>{
 
@@ -48,7 +48,7 @@ router.get('/movies',async(req, res)=>{
      const page = req.query.page || 1
      const limit = req.query.limit || 3
 
-     const totalpages = 0;
+     let totalpages = 0;
 
      let movie ;
     if(req.query.q){
