@@ -55,7 +55,7 @@ router.get('/movies',async(req, res)=>{
         if(req.query.q == 'sort'){
             movie = await Movie.find().skip((page-1) * limit).limit(limit).lean().exec();
 
-            let totaldocs =  await Movie.find().countDocuments()
+          const totaldocs =  await Movie.find().countDocuments()
 
             totalpages = (Math.ceil(totaldocs / limit))
 
@@ -66,7 +66,7 @@ router.get('/movies',async(req, res)=>{
           
             movie = await Movie.find({type:req.query.base}).skip((page-1) * limit).limit(limit).lean().exec();
             
-           let totaldocs = await Movie.find({type:req.query.base}).countDocuments()
+           const totaldocs = await Movie.find({type:req.query.base}).countDocuments()
 
            totalpages = (Math.ceil(totaldocs / limit))
 
@@ -74,13 +74,13 @@ router.get('/movies',async(req, res)=>{
 
         else{
             movie = await Movie.find({block:req.query.block}).skip((page-1) * limit).limit(limit).lean().exec();
-            let totaldocs = await Movie.find({block:req.query.block}).countDocuments()
+            const totaldocs = await Movie.find({block:req.query.block}).countDocuments()
             totalpages = (Math.ceil(totaldocs / limit))
         }
     }
     else{
         movie = await Movie.find().skip((page-1) * limit).limit(limit).lean().exec();
-        let totaldocs = await Movie.find().countDocuments()
+        const totaldocs = await Movie.find().countDocuments()
 
         totalpages = (Math.ceil(totaldocs / limit))
 
@@ -108,4 +108,4 @@ catch(err){
 
 });
 
-module.exports = router;
+module.exports = router
