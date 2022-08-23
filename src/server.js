@@ -18,11 +18,14 @@ const port = process.env.PORT || 5000;
 app.use('/',movieController);
 
 module.exports = () => {
+    
 app.listen(port, async() => {
+   
     try{
      
     await connect();
-    console.log('litening on port '+ port);
+    
+        console.log('litening on port '+ port);
 
     }
     catch(err){
